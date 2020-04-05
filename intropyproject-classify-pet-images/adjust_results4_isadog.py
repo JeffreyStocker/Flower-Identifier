@@ -67,5 +67,12 @@ def adjust_results4_isadog(results_dic, dogfile):
   Returns:
           None - results_dic is mutable data type so no return needed.
   """
+  with open('dognames.txt', 'r') as file:
+    dognames = file.read();
 
-  None
+  for name, labels in results_dic:
+    img_label, classifier_label = labels
+    labels.append(1 if img_label in dognames else 0)
+    labels.append(1 if classifier_label in dognames else 0)
+
+  return None
