@@ -27,7 +27,11 @@
 from time import time, sleep
 
 # Imports print functions that check the lab
-from print_functions_for_lab_checks import check_classifying_images, check_command_line_arguments, check_creating_pet_image_labels, check_classifying_labels_as_dogs, check_calculating_results
+from print_functions_for_lab_checks import (
+    check_classifying_images,
+    check_command_line_arguments, check_creating_pet_image_labels,
+    check_classifying_labels_as_dogs, check_calculating_results
+    )
 
 # Imports functions created for this program
 from get_input_args import get_input_args
@@ -72,7 +76,7 @@ def main():
     #             classify_images(in_arg.dir, results, in_arg.arch)
     # Creates Classifier Labels with classifier function, Compares Labels,
     # and adds these results to the results dictionary - results
-    classify_images(None, results, None)
+    classify_images(in_arg.dir, results, in_arg.arch)
 
     # Function that checks Results Dictionary using results
     check_classifying_images(results)
