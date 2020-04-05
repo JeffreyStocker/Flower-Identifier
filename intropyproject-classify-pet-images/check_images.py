@@ -41,6 +41,9 @@ from adjust_results4_isadog import adjust_results4_isadog
 from calculates_results_stats import calculates_results_stats
 from print_results import print_results
 
+with open('dognames.txt', 'r') as file:
+    dognames = file.read();
+
 # Main program function defined below
 def main():
     # TODO 0: Measures total program runtime by collecting start time
@@ -89,9 +92,10 @@ def main():
     # Adjusts the results dictionary to determine if classifier correctly
     # classified images as 'a dog' or 'not a dog'. This demonstrates if
     # model can correctly classify dog images as dogs (regardless of breed)
-    adjust_results4_isadog(results, None)
+    adjust_results4_isadog(results, dognames)
 
     # Function that checks Results Dictionary for is-a-dog adjustment using results
+
     check_classifying_labels_as_dogs(results)
 
     # TODO 5: Define calculates_results_stats function within the file calculates_results_stats.py
