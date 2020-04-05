@@ -27,7 +27,7 @@
 from time import time, sleep
 
 # Imports print functions that check the lab
-from print_functions_for_lab_checks import *
+from print_functions_for_lab_checks import check_classifying_images, check_command_line_arguments, check_creating_pet_image_labels, check_classifying_labels_as_dogs, check_calculating_results
 
 # Imports functions created for this program
 from get_input_args import get_input_args
