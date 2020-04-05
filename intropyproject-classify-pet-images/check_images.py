@@ -52,7 +52,6 @@ def main():
     # Function that checks command line arguments using in_arg
     check_command_line_arguments(in_arg)
 
-
     # TODO 2: Define get_pet_labels function within the file get_pet_labels.py
     # Once the get_pet_labels function has been defined replace 'None'
     # in the function call with in_arg.dir  Once you have done the replacements
@@ -60,11 +59,10 @@ def main():
     #             get_pet_labels(in_arg.dir)
     # This function creates the results dictionary that contains the results,
     # this dictionary is returned from the function call as the variable results
-    results = get_pet_labels(None)
+    results = get_pet_labels(in_arg.dir)
 
     # Function that checks Pet Images in the results Dictionary using results
     check_creating_pet_image_labels(results)
-
 
     # TODO 3: Define classify_images function within the file classify_images.py
     # Once the classify_images function has been defined replace first 'None'
@@ -79,7 +77,6 @@ def main():
     # Function that checks Results Dictionary using results
     check_classifying_images(results)
 
-
     # TODO 4: Define adjust_results4_isadog function within the file adjust_results4_isadog.py
     # Once the adjust_results4_isadog function has been defined replace 'None'
     # in the function call with in_arg.dogfile  Once you have done the
@@ -93,7 +90,6 @@ def main():
     # Function that checks Results Dictionary for is-a-dog adjustment using results
     check_classifying_labels_as_dogs(results)
 
-
     # TODO 5: Define calculates_results_stats function within the file calculates_results_stats.py
     # This function creates the results statistics dictionary that contains a
     # summary of the results statistics (this includes counts & percentages). This
@@ -104,7 +100,6 @@ def main():
 
     # Function that checks Results Statistics Dictionary using results_stats
     check_calculating_results(results, results_stats)
-
 
     # TODO 6: Define print_results function within the file print_results.py
     # Once the print_results function has been defined replace 'None'
@@ -121,8 +116,8 @@ def main():
     # TODO 0: Computes overall runtime in seconds & prints it in hh:mm:ss format
     tot_time = end_time - start_time
     print("\n** Total Elapsed Runtime:",
-        str(int((tot_time/3600)))+":"+str(int((tot_time%3600)/60))+":"
-        +str(int((tot_timetime%3600)%60)) )
+          str(int((tot_time/3600)))+":"+str(int((tot_time % 3600)/60))+":"
+          + str(int((tot_time % 3600) % 60)))
 
 
 # Call to main function to run the program
