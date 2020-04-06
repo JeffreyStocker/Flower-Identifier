@@ -41,9 +41,9 @@ def get_input_args():
   # Replace None with parser.parse_args() parsed argument collection that
   # you created with this function
   parser = argparse.ArgumentParser(description='Help')
-  parser.add_argument('--dir', nargs='+', default='pet_images')
-  parser.add_argument('--arch', nargs='+', default='vgg')
-  parser.add_argument('--dogfile', nargs='+', default='dognames.txt')
+  parser.add_argument('--dir', type=str, default='pet_images/')
+  parser.add_argument('--arch', default='vgg')
+  parser.add_argument('--dogfile', default='dognames.txt')
 
   return parser
 
