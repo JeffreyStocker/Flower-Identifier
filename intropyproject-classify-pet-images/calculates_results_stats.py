@@ -98,9 +98,9 @@ def calculates_results_stats(results_dic):
     results_stats_dic["n_correct_notdogs"] += 1 if not is_a_dog and not classifier_is_a_dog else 0
     results_stats_dic["n_correct_breed"] += 1 if is_a_dog and match_img_and_classifier else 0
 
-  results_stats_dic["pct_match"] = 100 * results_stats_dic["n_match"] / results_stats_dic["n_images"]
-  results_stats_dic["pct_correct_dogs"] = 100 * results_stats_dic["n_correct_dogs"] / results_stats_dic["n_dogs_img"]
-  results_stats_dic["pct_correct_breed"] = 100 * results_stats_dic["n_correct_breed"] / results_stats_dic["n_match"]
-  results_stats_dic["pct_correct_notdogs"] = 100 * results_stats_dic["n_correct_notdogs"] / results_stats_dic["n_notdogs_img"]
+  results_stats_dic["pct_match"] = 0 if results_stats_dic["n_images"] == 0 else 100 * results_stats_dic["n_match"] / results_stats_dic["n_images"]
+  results_stats_dic["pct_correct_dogs"] = 0 if results_stats_dic["n_dogs_img"] == 0 else 100 * results_stats_dic["n_correct_dogs"] / results_stats_dic["n_dogs_img"]
+  results_stats_dic["pct_correct_breed"] = 0 if results_stats_dic["n_match"] == 0 else 100 * results_stats_dic["n_correct_breed"] / results_stats_dic["n_match"]
+  results_stats_dic["pct_correct_notdogs"] = 0 if results_stats_dic["n_notdogs_img"] == 0 else 100 * results_stats_dic["n_correct_notdogs"] / results_stats_dic["n_notdogs_img"]
 
-  return None
+  return results_stats_dic
