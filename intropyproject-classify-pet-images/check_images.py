@@ -124,7 +124,7 @@ def main():
 
     # TODO 0: Computes overall runtime in seconds & prints it in hh:mm:ss format
     timer.stop('End Time')
-    print("\n** Total Elapsed Runtime:", str(timer))
+    print("\n** Total Elapsed Runtime:", timer.output_final())
 
 
 # Call to main function to run the program

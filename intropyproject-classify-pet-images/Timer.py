@@ -28,7 +28,7 @@ class Timer:
     else:
       return None
 
-  def __str__(self):
+  def output_final(self):
     delta = self.delta()
 
     hours = str( int( (delta / 3600) ) )
