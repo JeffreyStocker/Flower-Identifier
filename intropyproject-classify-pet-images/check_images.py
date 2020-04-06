@@ -120,10 +120,9 @@ def main():
     print_results(results, results_stats, in_arg.arch, True, True)
 
     # TODO 0: Measure total program runtime by collecting end time
-    end_time = time()
+    timer.stop('End Time')
 
     # TODO 0: Computes overall runtime in seconds & prints it in hh:mm:ss format
-    timer.stop('End Time')
     print("\n** Total Elapsed Runtime:", timer.output_final())
 
 
