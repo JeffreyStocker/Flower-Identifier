@@ -40,6 +40,7 @@ from classify_images import classify_images
 from adjust_results4_isadog import adjust_results4_isadog
 from calculates_results_stats import calculates_results_stats
 from print_results import print_results
+from Timer import Timer
 
 with open('dognames.txt', 'r') as file:
     dognames = file.read();
@@ -47,7 +48,7 @@ with open('dognames.txt', 'r') as file:
 # Main program function defined below
 def main():
     # TODO 0: Measures total program runtime by collecting start time
-    start_time = time()
+    timer = Timer('Start Time')
 
     # TODO 1: Define get_input_args function within the file get_input_args.py
     # This function retrieves 3 Command Line Arugments from user as input from
@@ -122,10 +123,8 @@ def main():
     end_time = time()
 
     # TODO 0: Computes overall runtime in seconds & prints it in hh:mm:ss format
-    tot_time = end_time - start_time
-    print("\n** Total Elapsed Runtime:",
-          str(int((tot_time/3600)))+":"+str(int((tot_time % 3600)/60))+":"
-          + str(int((tot_time % 3600) % 60)))
+    timer.stop('End Time')
+    print("\n** Total Elapsed Runtime:", str(timer))
 
 
 # Call to main function to run the program
