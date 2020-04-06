@@ -62,5 +62,15 @@ def print_results(results_dic, results_stats_dic, model,
   Returns:
           None - simply printing results.
   """
+  animal_items = results_dic.items
+
+  if print_incorrect_dogs:
+    incorrect_dogs = [name for name, stats in animal_items if (stats[3] != stats[4])]
+    print(incorrect_dogs)
+
+  if print_incorrect_breed:
+    incorrect_breed = [name for name, stats in animal_items if stats[3] and stats[2]]
+    print(incorrect_breed)
+
   return None
 
