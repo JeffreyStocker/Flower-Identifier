@@ -62,15 +62,32 @@ def print_results(results_dic, results_stats_dic, model,
   Returns:
           None - simply printing results.
   """
-  animal_items = results_dic.items
+  print('Model: ', model)
+  print('Image Count: ', results_stats_dic["n_images"])
+
+  print('Dog Image Count: ', results_stats_dic["n_dogs_img"])
+  print('Non Dog Image Count: ', results_stats_dic["n_notdogs_img"])
+  print('Matching pet and classifier Count: ', results_stats_dic["n_match"])
+
+  print('Correctly Classified as Dogs Count: ', results_stats_dic["n_correct_dogs"])
+  print('Incorrectly Classified as Dogs Count: ', results_stats_dic["n_correct_notdogs"])
+  print('Correctly Classified Dog Breeds Count: ', results_stats_dic["n_correct_breed"])
+
+  print('Percent of Matches Correct: ', results_stats_dic["pct_match"])
+  print('Percent of Dog Matches Correct: ', results_stats_dic["pct_correct_dogs"])
+  print('Percent of Breed Matches Correct: ', results_stats_dic["pct_correct_breed"])
+  print('Percent of Non Dog Matches Correct: ', results_stats_dic["pct_correct_notdogs"])
+  print('\n')
+
+  animal_items = results_dic.items()
 
   if print_incorrect_dogs:
     incorrect_dogs = [name for name, stats in animal_items if (stats[3] != stats[4])]
-    print(incorrect_dogs)
+    print('List of incorrectly labeled dogs', incorrect_dogs)
 
   if print_incorrect_breed:
     incorrect_breed = [name for name, stats in animal_items if stats[3] and stats[2]]
-    print(incorrect_breed)
+    print('list of incorrect labeled breeds', incorrect_breed)
 
   return None
 
