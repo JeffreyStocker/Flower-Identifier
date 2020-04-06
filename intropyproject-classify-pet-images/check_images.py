@@ -55,7 +55,7 @@ def main():
     # the user running the program from a terminal window. This function returns
     # the collection of these command line arguments from the function call as
     # the variable in_arg
-    in_arg = get_input_args()
+    in_arg = get_input_args().parse_args()
 
     # Function that checks command line arguments using in_arg
     check_command_line_arguments(in_arg)
@@ -117,7 +117,7 @@ def main():
     #      print_results(results, results_stats, in_arg.arch, True, True)
     # Prints summary results, incorrect classifications of dogs (if requested)
     # and incorrectly classified breeds (if requested)
-    print_results(results, results_stats, None, True, True)
+    print_results(results, results_stats, in_arg.arch, True, True)
 
     # TODO 0: Measure total program runtime by collecting end time
     end_time = time()
