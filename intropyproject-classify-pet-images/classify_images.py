@@ -67,9 +67,12 @@ def classify_images(images_dir, results_dic, model):
     None - results_dic is mutable data type so no return needed.
   """
   for name, tags in results_dic.items():
+    list_of_tags = map(lambda tag: tag.strip().lower(), tags[0].split(','))
+
     img_path = images_dir + '/' + name
     classification = classifier(img_path, model)
-    results_dic[name].append(classification)
-    results_dic[name].append(1 if classification == results_dic[name][0] else 0)
+    results_dic[name].append(classification.lower())
+
+    results_dic[name].append(1 if classification in list_of_tags else 0)
 
   return None
