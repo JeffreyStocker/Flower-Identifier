@@ -83,11 +83,11 @@ def print_results(results_dic, results_stats_dic, model,
 
   if print_incorrect_dogs:
     incorrect_dogs = [name for name, stats in animal_items if (stats[3] != stats[4])]
-    print('List of incorrectly labeled dogs', incorrect_dogs)
+    print('List of incorrectly labeled dogs: ', ', '.join(incorrect_dogs))
 
   if print_incorrect_breed:
     incorrect_breed = [name for name, stats in animal_items if stats[3] and stats[2]]
-    print('list of incorrect labeled breeds', incorrect_breed)
+    print('list of incorrect labeled breeds: ', ', '.join(incorrect_breed))
 
   return None
 
