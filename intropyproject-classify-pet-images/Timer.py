@@ -1,38 +1,43 @@
 import time
 
 class Timer:
-  def __init__(self, discription):
+  def __init__(self, discription = ''):
+    self.ended = False
     self.times = []
-    self.start = self.mark(discription)
-    self.stop = None
+    self.stop_time = None
+    self.start_time = self.mark(discription)
 
-  def mark(self, discription):
-    if not self.stop:
-      time = time()
+  def mark(self, discription = ''):
+    if not self.ended:
+      currentTime = time.time()
       self.times.append((time, discription))
     else:
-      time = None
-    return time
+      currentTime = None
+    return currentTime
 
-  def stop(self, discription):
-    if not self.stop:
+  def stop(self, discription = ''):
+    if not self.ended:
       endTime = self.mark(discription)
-      self.stop = endTime
+      self.stop_time = endTime
+      self.ended = True
       return self.delta()
     else:
       return None
 
   def delta(self, roundInt = 2):
-    if self.start and self.stop:
-      return round(float(self.stop - self.start), roundInt)
+    if self.start_time and self.stop_time:
+      return round(float(self.stop_time - self.start_time), roundInt)
     else:
       return None
 
   def output_final(self):
-    delta = self.delta()
+    if self.ended:
+      delta = self.delta()
 
-    hours = str( int( (delta / 3600) ) )
-    minutes = str( int(  ( (delta % 3600) % 60 ) ) )
-    seconds = str( int(  ( (delta % 3600) / 60 )  ) )
+      hours = str( int( (delta / 3600) ) )
+      minutes = str( int(  ( (delta % 3600) % 60 ) ) )
+      seconds = str( int(  ( (delta % 3600) / 60 )  ) )
 
-    return hours  + ":" + minutes + ":" + seconds
+      return hours  + ":" + minutes + ":" + seconds
+    else:
+      return 'Not Ended Yet'
