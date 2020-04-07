@@ -32,7 +32,7 @@
 #       prints a summary of the results using results_dic and results_stats_dic
 #
 def print_results(results_dic, results_stats_dic, model,
-                  print_incorrect_dogs = False, print_incorrect_breed = False):
+                print_incorrect_dogs = False, print_incorrect_breed = False):
   """
   Prints summary results on the classification and then prints incorrectly
   classified dogs and incorrectly classified dog breeds if user indicates
@@ -73,10 +73,10 @@ def print_results(results_dic, results_stats_dic, model,
   print('Incorrectly Classified as Dogs Count: ', results_stats_dic["n_correct_notdogs"])
   print('Correctly Classified Dog Breeds Count: ', results_stats_dic["n_correct_breed"])
 
-  print('Percent of Matches Correct: ', results_stats_dic["pct_match"])
-  print('Percent of Dog Matches Correct: ', results_stats_dic["pct_correct_dogs"])
-  print('Percent of Breed Matches Correct: ', results_stats_dic["pct_correct_breed"])
-  print('Percent of Non Dog Matches Correct: ', results_stats_dic["pct_correct_notdogs"])
+  print('Percent of Matches Correct: ', round(results_stats_dic["pct_match"], 1))
+  print('Percent of Dog Matches Correct: ', round(results_stats_dic["pct_correct_dogs"], 1))
+  print('Percent of Breed Matches Correct: ', round(results_stats_dic["pct_correct_breed"], 1))
+  print('Percent of Non Dog Matches Correct: ', round(results_stats_dic["pct_correct_notdogs"], 1))
   print('\n')
 
   animal_items = results_dic.items()
