@@ -68,9 +68,19 @@ def adjust_results4_isadog(results_dic, dogfile):
           None - results_dic is mutable data type so no return needed.
   """
 
-  for name, labels in results_dic:
-    img_label, classifier_label = labels
+  for name, labels in results_dic.items():
+    img_label, classifier_labels, is_a_dog = labels
+
     labels.append(1 if img_label in dogfile else 0)
-    labels.append(1 if classifier_label in dogfile else 0)
+
+    for class_label in classifier_labels.split(', '):
+        class_label = class_label.strip()
+        if class_label in dogfile:
+            labels.append(1)
+            break
+    else:
+        labels.append(0)
+
+  return None
 
   return None

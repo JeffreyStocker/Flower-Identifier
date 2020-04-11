@@ -70,9 +70,16 @@ def classify_images(images_dir, results_dic, model):
     list_of_tags = map(lambda tag: tag.strip().lower(), tags[0].split(','))
 
     img_path = images_dir + '/' + name
-    classification = classifier(img_path, model)
-    results_dic[name].append(classification.lower())
+    classifications = classifier(img_path, model)
+    lower_classifications = classifications.lower()
 
-    results_dic[name].append(1 if classification in list_of_tags else 0)
+    results_dic[name].append(lower_classifications)
+
+    for tag in list_of_tags:
+        if tag in lower_classifications:
+            results_dic[name].append(1)
+            break
+    else:
+        results_dic[name].append(0)
 
   return None
