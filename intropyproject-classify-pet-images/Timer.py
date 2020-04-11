@@ -1,3 +1,16 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# PROGRAMMER: Jeffrey Stocker
+# DATE CREATED: 4-11-2020
+# REVISED DATE: 4-11-2020
+# PURPOSE: To be able to track times in a program.
+#   Inputs:
+#     -Discription: discription of start of timer
+#   Output:
+#     -New class of Timer
+#
+##
+
 import time
 
 class Timer:
