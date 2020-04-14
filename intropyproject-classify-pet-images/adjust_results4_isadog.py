@@ -82,5 +82,3 @@ def adjust_results4_isadog(results_dic, dogfile):
         labels.append(0)
 
   return None
-
-  return None
