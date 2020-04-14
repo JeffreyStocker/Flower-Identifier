@@ -82,7 +82,7 @@ def print_results(results_dic, results_stats_dic, model,
   animal_items = results_dic.items()
 
   if print_incorrect_dogs:
-    incorrect_dogs = [name for name, stats in animal_items if (stats[3] != stats[4])]
+    incorrect_dogs = [name for name, stats in animal_items if stats[3] and not stats[4]]
     print('List of incorrectly labeled dogs: ', ', '.join(incorrect_dogs))
 
   if print_incorrect_breed:
