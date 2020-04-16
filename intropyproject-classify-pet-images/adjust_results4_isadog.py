@@ -68,17 +68,34 @@ def adjust_results4_isadog(results_dic, dogfile):
           None - results_dic is mutable data type so no return needed.
   """
 
+  dog_names = get_dog_names(dogfile)
+
   for name, labels in results_dic.items():
     img_label, classifier_labels, is_a_dog = labels
 
-    labels.append(1 if img_label in dogfile else 0)
+    labels.append(1 if img_label in dog_names else 0)
 
     for class_label in classifier_labels.split(', '):
         class_label = class_label.strip()
-        if class_label in dogfile:
+        if class_label in dog_names:
             labels.append(1)
             break
     else:
         labels.append(0)
 
   return None
+
+
+def get_dog_names(dog_file):
+  '''
+  Parameters
+    dog_file: text string of different dogs seperated by lines, each line may have a different name for the same breed, seperated by ','
+  Returns:
+    Set with each breed name a set property
+  '''
+  dog_names = set()
+  for breed_names in dog_file.splitlines():
+    names = [name.strip().lower() for name in breed_names.split(',')]
+    dog_names.update(names)
+
+  return dog_names
