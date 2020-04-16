@@ -47,8 +47,11 @@ def get_pet_labels(image_dir):
   try:
     search_results = listdir(image_dir)
     for image in search_results:
-      name = ' '.join(image.lower().split('.')[0].split('_')[:-1])
-      results_dic[image] = [name]
+      if image[0] == '.':
+        break
+      else:
+        name = ' '.join(image.lower().split('.')[0].split('_')[:-1])
+        results_dic[image] = [name]
   except:
     pass
 
